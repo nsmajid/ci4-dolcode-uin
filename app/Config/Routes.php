@@ -29,6 +29,7 @@ $routes->get('admin/karyawan/(:num)/edit', [Karyawan::class, 'edit/$1']);
 
 $routes->post('admin/karyawan', [Karyawan::class, 'create']);
 $routes->put('admin/karyawan/(:num)', [Karyawan::class, 'update/$1']);
+$routes->delete('admin/karyawan/(:num)', [Karyawan::class, 'delete/$1']);
 
 
 $routes->get('admin/jabatan', [Jabatan::class, 'index']);

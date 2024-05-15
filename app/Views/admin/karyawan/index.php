@@ -33,8 +33,14 @@
                             <td><?= $karyawan->alamat ?></td>
                             <td><?= $karyawan->jenis_kelamin == "L" ? "Laki-laki" : "Perempuan" ?></td>
                             <td><?= $karyawan->jabatan ?></td>
-                            <td>
-                                <a href="/admin/karyawan/<?=$karyawan->id_karyawan?>/edit" type="button" class="btn btn-sm btn-info waves-effect waves-light">Edit</a>
+                            <td class="d-flex">
+                                <a href="/admin/karyawan/<?= $karyawan->id_karyawan ?>/edit" type="button" class="btn btn-sm btn-info waves-effect waves-light mr-2">Edit</a>
+                                <form action="/admin/karyawan/<?= $karyawan->id_karyawan ?>" method="POST" onsubmit="return confirm('Do you really want to delete?');">
+
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <?= csrf_field() ?>
+                                    <button type="submit" class="btn btn-sm btn-dark waves-effect waves-light">Delete</button>
+                                </form>
                             </td>
 
                         </tr>
@@ -43,6 +49,10 @@
                     ?>
                 </tbody>
             </table>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <?= $data['pager']->links('karyawan', 'dolkode') ?>
         </div>
     </div>
 </div>

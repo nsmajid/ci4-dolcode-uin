@@ -26,7 +26,8 @@ class Karyawan extends BaseController
             'data' => [
                 'karyawan' => $this->karyawan
                     ->join('jabatan', 'jabatan.id_jabatan = karyawan.id_jabatan')
-                    ->findAll()
+                    ->paginate(3),
+                'pager' => $this->karyawan->pager
             ]
         ];
 
@@ -63,6 +64,21 @@ class Karyawan extends BaseController
             'username' => str_replace(' ', '_', strtolower((string)$this->request->getPost('nama_karyawan'))),
             'password' => '123',
         ];
+
+        $validation = \Config\Services::validation();
+
+        $validation->setRules([
+            'nama_karyawan' => 'required',
+            'alamat' => 'required',
+            'jenis_kelamin' => 'required',
+            'id_jabatan' => 'required',
+        ]);
+
+        if (!$validation->run($dataInsert)) {
+            // handle validation errors
+            return  redirect()->back()->withInput();
+        }
+
 
         $insert = $this->karyawan->insert($dataInsert);
         // dd($insert);
@@ -106,6 +122,7 @@ class Karyawan extends BaseController
             'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
             'id_jabatan' => $this->request->getPost('id_jabatan')
         ];
+
         // dd($dataUpdate);
 
         $update = $this->karyawan->update($idKaryawan, $dataUpdate);
@@ -117,6 +134,23 @@ class Karyawan extends BaseController
             session()->setFlashdata('notif_cls', 'success');
         } else {
             session()->setFlashdata('notif_msg', 'Gagal Update');
+            session()->setFlashdata('notif_cls', 'danger');
+        }
+
+        return redirect()->to('admin/karyawan');
+        // dd($insert);
+    }
+    public function delete($idKaryawan = 0)
+    {
+
+        // dd($this->request);
+        session()->setFlashdata('notif', true);
+
+        if ($this->karyawan->delete(['id_karyawan' => $idKaryawan])) {
+            session()->setFlashdata('notif_msg', 'Berhasil Delete');
+            session()->setFlashdata('notif_cls', 'success');
+        } else {
+            session()->setFlashdata('notif_msg', 'Gagal Delete');
             session()->setFlashdata('notif_cls', 'danger');
         }
 
