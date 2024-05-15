@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
+use App\Models\JabatanModel;
 
 class Jabatan extends BaseController
 {
@@ -9,13 +10,17 @@ class Jabatan extends BaseController
     {
         helper('auth_helper');
         checkLogin();
+        $this->jabatan = new JabatanModel;
     }
     public function index()
     {
         $data = [
             'title' => 'Jabatan',
             'nav' => 'jabatan',
-            'breadcrumb' => ['Jabatan', 'Show']
+            'breadcrumb' => ['Jabatan', 'Show'],
+            'data'=>[
+                'jabatan'=> $this->jabatan->findAll()
+            ]
         ];
 
         return view('admin/jabatan/index', $data);

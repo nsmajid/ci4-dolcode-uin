@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class KaryawanModel extends Model
+class JabatanModel extends Model
 {
-    protected $table      = 'karyawan';
-    protected $primaryKey = 'id_karyawan';
+    protected $table      = 'jabatan';
+    protected $primaryKey = 'id_jabatan';
 
     protected $useAutoIncrement = true;
 
@@ -15,12 +15,8 @@ class KaryawanModel extends Model
     protected $useSoftDeletes = false;
 
     protected $allowedFields = [
-        'nama_karyawan',
-        'alamat',
-        'jenis_kelamin',
-        'id_jabatan',
-        'username',
-        'password',
+        'jabatan',
+        'gaji'
     ];
     
     // Dates

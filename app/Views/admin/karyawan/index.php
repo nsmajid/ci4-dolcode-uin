@@ -2,10 +2,10 @@
 <?= $this->section('content') ?>
 <div class="card">
     <div class="card-header">
-        <h5>Hover Table</h5>
+        <h5>Daftar Karyawan</h5>
         <div class="card-header-right">
-            <ul class="list-unstyled card-option" style="width: 140px;">
-
+            <ul class="list-unstyled card-option" style="width: 150px; height: 200px;">
+                <a href="/admin/karyawan/new" type="button" class="btn btn-sm btn-primary waves-effect waves-light">Tambah Karyawan</a>
             </ul>
         </div>
     </div>

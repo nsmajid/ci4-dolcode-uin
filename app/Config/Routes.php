@@ -24,6 +24,10 @@ $routes->get('admin/user',[Users::class,'index']);
 // $routes->resource('karyawan');
 
 $routes->get('admin/karyawan', [Karyawan::class, 'index']);
+$routes->get('admin/karyawan/new', [Karyawan::class, 'new']);
+$routes->post('admin/karyawan', [Karyawan::class, 'create']);
+
+
 $routes->get('admin/jabatan', [Jabatan::class, 'index']);
 
 // $routes->get('karyawan', [Coba::class, 'index']);
