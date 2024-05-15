@@ -1,27 +1,46 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
-<div class="row">
-    <div class="col-sm-12">
-        <div class="card">
-            <div class="card-header">
-                <h5>Hello card Karyawan</h5>
-                <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
-                <div class="card-header-right">
-                    <ul class="list-unstyled card-option">
-                        <li><i class="fa fa-chevron-left"></i></li>
-                        <li><i class="fa fa-window-maximize full-card"></i></li>
-                        <li><i class="fa fa-minus minimize-card"></i></li>
-                        <li><i class="fa fa-refresh reload-card"></i></li>
-                        <li><i class="fa fa-times close-card"></i></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="card-block">
-                <p>
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                </p>
-            </div>
+<div class="card">
+    <div class="card-header">
+        <h5>Hover Table</h5>
+        <div class="card-header-right">
+            <ul class="list-unstyled card-option" style="width: 140px;">
+
+            </ul>
+        </div>
+    </div>
+    <div class="card-block table-border-style">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nama Karyawan</th>
+                        <th>Alamat</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Jabatan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $no = 1;
+                    foreach ($data['karyawan'] as $karyawan) {
+                    ?>
+                        <tr>
+                            <th scope="row"><?= $no++ ?></th>
+                            <td><?= $karyawan->nama_karyawan ?></td>
+                            <td><?= $karyawan->alamat ?></td>
+                            <td><?= $karyawan->jenis_kelamin == "L" ? "Laki-laki" : "Perempuan" ?></td>
+                            <td><?= $karyawan->jabatan ?></td>
+
+                        </tr>
+                    <?php
+                    }
+                    ?>
+
+
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

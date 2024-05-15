@@ -5,6 +5,11 @@ use App\Controllers\BaseController;
 
 class Jabatan extends BaseController
 {
+    public function __construct()
+    {
+        helper('auth_helper');
+        checkLogin();
+    }
     public function index()
     {
         $data = [
