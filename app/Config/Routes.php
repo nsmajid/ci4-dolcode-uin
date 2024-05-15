@@ -25,7 +25,10 @@ $routes->get('admin/user',[Users::class,'index']);
 
 $routes->get('admin/karyawan', [Karyawan::class, 'index']);
 $routes->get('admin/karyawan/new', [Karyawan::class, 'new']);
+$routes->get('admin/karyawan/(:num)/edit', [Karyawan::class, 'edit/$1']);
+
 $routes->post('admin/karyawan', [Karyawan::class, 'create']);
+$routes->put('admin/karyawan/(:num)', [Karyawan::class, 'update/$1']);
 
 
 $routes->get('admin/jabatan', [Jabatan::class, 'index']);

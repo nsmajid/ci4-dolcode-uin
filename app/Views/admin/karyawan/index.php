@@ -19,6 +19,7 @@
                         <th>Alamat</th>
                         <th>Jenis Kelamin</th>
                         <th>Jabatan</th>
+                        <th>Option</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,6 +33,9 @@
                             <td><?= $karyawan->alamat ?></td>
                             <td><?= $karyawan->jenis_kelamin == "L" ? "Laki-laki" : "Perempuan" ?></td>
                             <td><?= $karyawan->jabatan ?></td>
+                            <td>
+                                <a href="/admin/karyawan/<?=$karyawan->id_karyawan?>/edit" type="button" class="btn btn-sm btn-info waves-effect waves-light">Edit</a>
+                            </td>
 
                         </tr>
                     <?php

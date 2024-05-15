@@ -60,6 +60,8 @@ class Filters extends BaseConfig
      */
     public array $methods = [
         'POST' => ['csrf'],
+        'PUT' => ['csrf'],
+        'DELETE' => ['csrf'],
     ];
 
     /**
