@@ -26,7 +26,7 @@ class Karyawan extends BaseController
             'data' => [
                 'karyawan' => $this->karyawan
                     ->join('jabatan', 'jabatan.id_jabatan = karyawan.id_jabatan')
-                    ->paginate(3, 'btn'),
+                    ->paginate(3,'btn'),
                 'pager' => $this->karyawan->pager
             ]
         ];

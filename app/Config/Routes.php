@@ -34,5 +34,9 @@ $routes->delete('admin/karyawan/(:num)', [Karyawan::class, 'delete/$1']);
 
 $routes->get('admin/jabatan', [Jabatan::class, 'index']);
 
-// $routes->get('karyawan', [Coba::class, 'index']);
-// $routes->post('karyawan', [Coba::class, 'create']);
+
+// $routes->get('api/jabatan', '\App\API\Jabatan::index');
+
+$routes->group('api', ['namespace' => 'App\Controllers\API', 'filter' => 'rest-api'], function ($routes) {
+    $routes->get('jabatan', 'Jabatan::index');
+});
