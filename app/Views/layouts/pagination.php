@@ -1,9 +1,11 @@
 <?php $pager->setSurroundCount(2) ?>
-
+<?php
+// d($pager->getPrevious());
+?>
 <nav aria-label="Page navigation example">
     <ul class="pagination">
-        <?php if ($pager->hasPrevious()) : ?>
-            <li class="page-item"><a class="page-link" href="<?= $pager->getFirst() ?>">Previous</a></li>
+        <?php if ($pager->hasPreviousPage()) : ?>
+            <li class="page-item"><a class="page-link" href="<?= $pager->getFirst() ?>">First</a></li>
         <?php endif ?>
 
         <?php foreach ($pager->links() as $link) : ?>
@@ -12,8 +14,8 @@
             </li>
 
         <?php endforeach ?>
-        <?php if ($pager->hasNext()) : ?>
-            <li class="page-item"><a class="page-link" href="<?= $pager->getNext() ?>">Next</a></li>
+        <?php if ($pager->hasNextPage()) : ?>
+            <li class="page-item"><a class="page-link" href="<?= $pager->getLast() ?>">Last</a></li>
         <?php endif ?>
 
     </ul>

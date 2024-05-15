@@ -52,7 +52,7 @@
         </div>
 
         <div class="d-flex justify-content-center">
-            <?= $data['pager']->links('karyawan', 'dolkode') ?>
+            <?= $data['pager']->links('btn','dolkode') ?>
         </div>
     </div>
 </div>
