@@ -39,4 +39,5 @@ $routes->get('admin/jabatan', [Jabatan::class, 'index']);
 
 $routes->group('api', ['namespace' => 'App\Controllers\API', 'filter' => 'rest-api'], function ($routes) {
     $routes->get('jabatan', 'Jabatan::index');
+    $routes->post('jabatan', 'Jabatan::create');
 });

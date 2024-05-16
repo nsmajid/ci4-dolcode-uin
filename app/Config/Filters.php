@@ -37,7 +37,7 @@ class Filters extends BaseConfig
     public array $globals = [
         'before' => [
             // 'honeypot',
-            // 'csrf',
+            'csrf' => ['except' => ['api/jabatan']],
             // 'invalidchars',
         ],
         'after' => [
@@ -61,9 +61,9 @@ class Filters extends BaseConfig
      * @var array<string, list<string>>
      */
     public array $methods = [
-        'POST' => ['csrf'],
-        'PUT' => ['csrf'],
-        'DELETE' => ['csrf'],
+        // 'POST' => ['csrf'],
+        // 'PUT' => ['csrf'],
+        // 'DELETE' => ['csrf'],
     ];
 
     /**
