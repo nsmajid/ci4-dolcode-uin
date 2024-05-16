@@ -157,4 +157,15 @@ class Karyawan extends BaseController
         return redirect()->to('admin/karyawan');
         // dd($insert);
     }
+
+    public function ajax()
+    {
+        // if ($this->request->isAJAX()) {
+        return view('admin/karyawan/ajax', [
+            'karyawan' => $this->karyawan
+                ->join('jabatan', 'jabatan.id_jabatan = karyawan.id_jabatan')
+                ->findAll()
+        ]);
+        // }
+    }
 }

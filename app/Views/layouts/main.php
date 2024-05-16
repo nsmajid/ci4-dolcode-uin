@@ -184,7 +184,7 @@
                             <li class="user-profile header-notification">
                                 <a href="#!" class="waves-effect waves-light">
                                     <img src="/assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                                    <span><?=session('name')?></span>
+                                    <span><?= session('name') ?></span>
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">
@@ -265,7 +265,7 @@
                         <div class="pcoded-inner-content">
                             <div class="main-body">
                                 <div class="page-wrapper">
-                                    <div class="page-body">
+                                    <div class="page-body" id="content-ajax">
                                         <?= view('layouts/message_notif') ?>
                                         <?= $this->renderSection('content') ?>
 
@@ -345,6 +345,21 @@
     <script src="/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <!-- Custom js -->
     <script type="text/javascript" src="/assets/js/script.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".nav-ajax").click(function() {
+                // console.log($(this).attr("data-nav"))
+                // alert("The paragraph was clicked.")
+                const nav = $(this).attr("data-nav")
+                $.ajax({
+                    url: "/ajax/" + nav,
+                    success: function(data) {
+                        document.getElementById('content-ajax').innerHTML = data;
+                    }
+                });
+            });
+        });
+    </script>
     <?= $this->renderSection('js') ?>
 
 </body>

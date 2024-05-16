@@ -34,6 +34,9 @@ $routes->delete('admin/karyawan/(:num)', [Karyawan::class, 'delete/$1']);
 
 $routes->get('admin/jabatan', [Jabatan::class, 'index']);
 
+$routes->get('ajax/karyawan', [Karyawan::class, 'ajax']);
+$routes->get('ajax/jabatan', [Jabatan::class, 'ajax']);
+
 
 // $routes->get('api/jabatan', '\App\API\Jabatan::index');
 

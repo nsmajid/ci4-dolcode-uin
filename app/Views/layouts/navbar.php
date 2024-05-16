@@ -51,6 +51,20 @@
                       <span class="pcoded-mcaret"></span>
                   </a>
               </li>
+              <li>
+                  <a href="#" class="waves-effect waves-dark nav-ajax" data-nav="karyawan">
+                      <span class="pcoded-micon"><i class="ti-user"></i><b>D</b></span>
+                      <span class="pcoded-mtext" data-i18n="nav.dash.main">Karyawan Ajax</span>
+                      <span class="pcoded-mcaret"></span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#" class="waves-effect waves-dark nav-ajax" data-nav="jabatan">
+                      <span class="pcoded-micon"><i class="ti-tag"></i><b>D</b></span>
+                      <span class="pcoded-mtext" data-i18n="nav.dash.main">Jabatan Ajax</span>
+                      <span class="pcoded-mcaret"></span>
+                  </a>
+              </li>
               <li class="pcoded-hasmenu">
                   <a href="javascript:void(0)" class="waves-effect waves-dark">
                       <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
