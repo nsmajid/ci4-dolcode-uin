@@ -56,4 +56,52 @@ class Jabatan extends ResourceController
             ], 400);
         }
     }
+
+    public function update($idJabatan = 0)
+    {
+
+        // $dataUpdateRaw = $this->request->getRawInput();
+        $dataUpdate = $this->request->getRawInput();
+
+        if (count($dataUpdate) == 0) {
+            return  $this->failForbidden('Parameter update minimal 1');
+        }
+
+        $update =  $this->jabatan->update($idJabatan, $dataUpdate);
+
+        if ($update) {
+            return $this->respond([
+                'status' => true,
+                'message' => 'Berhasil update Jabatan',
+            ]);
+        } else {
+            return $this->fail([
+                'status' => false,
+                'message' => 'Gagal update jabatan'
+            ], 400);
+        }
+    }
+    public function delete($idJabatan = 0)
+    {
+
+        // $dataUpdateRaw = $this->request->getRawInput();
+
+        if (!$this->jabatan->find($idJabatan)) {
+            return  $this->failForbidden('Parameter kurang lengkap');
+        }
+
+        $delete =  $this->jabatan->delete(['id_jabatan' => $idJabatan]);
+
+        if ($delete) {
+            return $this->respond([
+                'status' => true,
+                'message' => 'Berhasil delete Jabatan',
+            ]);
+        } else {
+            return $this->fail([
+                'status' => false,
+                'message' => 'Gagal delete jabatan'
+            ], 400);
+        }
+    }
 }
